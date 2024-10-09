@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <!-- /.login-logo -->
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a href="index.html" class="h1"><b>MotoExplorer</a>
+    </div>
+    <div class="card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+
+      <form action="index.html" method="post">
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Remember Me
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <div class="social-auth-links text-center mt-2 mb-3">
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fab fa-google mr-2"></i> Sign in using Google
+        </a>
+      </div>
+      <!-- /.social-auth-links -->
+
+      <p class="mb-1">
+        <a href="forgot-password.html">I forgot my password</a>
+      </p>
+      <p class="mb-0">
+        <a href="register.html" class="text-center">Don't have an account yet?</a>
+      </p>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<script>
+  // Array of valid users
+  const validUsers = [
+    { email: "user1@example.com", password: "password1", name: "John Doe", profileImage: "https://i.pinimg.com/736x/1a/1b/1c/1a1b1c1d1e1f1g.jpg" },
+    { email: "user2@example.com", password: "password2", name: "Jane Smith", profileImage: "https://i.pinimg.com/736x/2a/2b/2c/2a2b2c2d2e2f2g.jpg" }
+  ];
+
+  // Event listener for form submission
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Get input values
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Check if the credentials are valid
+    const user = validUsers.find(user => user.email === email && user.password === password);
+
+    if (user) {
+      // Save user info to localStorage
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+      // Redirect to index page or refresh to update sidebar
+      window.location.href = "index.html";
+    } else {
+      // Show error message
+      document.getElementById("error-message").style.display = "block";
+    }
+  });
+
+  // Function to update sidebar with logged-in user info
+  function updateSidebar() {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (loggedInUser) {
+      document.getElementById("user-name").textContent = loggedInUser.name;
+      document.getElementById("user-img").src = loggedInUser.profileImage;
+      document.getElementById("user-name").href = "#"; // Remove login link
+    }
+  }
+
+  // Call the function to update sidebar on page load
+  updateSidebar();
+</script>
+</body>
+</html>

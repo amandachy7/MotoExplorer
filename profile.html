@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistem Rental Motor</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <!--plugins/fontawesome-free/css/all.min.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  
+</head>
+<style>
+/* General Styling */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* About Hero Section */
+.about-hero {
+    background-image: url('path-to-your-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.about-hero .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Transparan hitam untuk tulisan */
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.about-hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.about-hero p {
+    font-size: 20px;
+    margin-bottom: 0;
+    font-weight: 300;
+}
+
+/* About Section Container */
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.about-section {
+    margin-bottom: 50px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.about-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.about-section h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+}
+
+.about-section h2 i {
+    margin-right: 10px;
+}
+
+.about-section p, .about-section ul {
+    font-size: 18px;
+    color: #555;
+}
+
+.about-section ul {
+    padding-left: 20px;
+}
+
+.about-section ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.about-section ul li i {
+    color: #555;
+    margin-right: 10px;
+}
+
+/* Icons List Styling */
+.icons-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.icons-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.icons-list li strong {
+    margin-left: 10px;
+    color: #333;
+}
+
+.icons-list li i {
+    color: #ff6f61;
+    font-size: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 36px;
+    }
+
+    .about-hero p {
+        font-size: 18px;
+    }
+
+    .about-container {
+        padding: 20px;
+    }
+
+    .about-section {
+        margin-bottom: 30px;
+    }
+
+    .about-section h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .about-section p {
+        font-size: 16px;
+    }
+}
+
+
+
+.sidebar {
+  background-color: rgb(105, 168, 220); /* Warna background biru */
+}
+
+.main-sidebar {
+  background-color: rgb(105, 168, 220); /* Warna background biru */
+
+}
+
+.sidebar .nav-link p, 
+.sidebar .nav-header, 
+.sidebar .info a {
+  color: black; /* Ubah semua warna teks di sidebar menjadi putih */
+  font-weight: bold; /* Mengatur teks menjadi tebal */
+
+}
+
+[class*=sidebar-dark] .btn-sidebar, [class*=sidebar-dark] .form-control-sidebar {
+    background-color: #c2c7d0;
+    border: 1px solid #fff;
+    color: #000;
+}
+[class*=sidebar-dark] .btn-sidebar, [class*=sidebar-dark] .form-control-sidebar {
+    background-color: #c2c7d0;
+    border: 1px solid #c2c7d0;
+    color: #000;
+}
+
+
+[class*=main-sidebar] .brand-text, [class*=main-sidebar] .font-weight-light{
+  font-family: 'source sans pro';
+  font-weight: bold !important;
+  color: #fff;
+}
+
+.centered-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    width: 800px; /* Adjust the width of the card if needed */
+    margin: auto;
+    left: 100px;
+}
+</style>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Navbar -->
+   
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+   
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+    <!-- Right navbar links -->
+    
+    <ul class="navbar-nav ml-auto">
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="fas fa-cog"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i>Profile
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-power-off mr-2"></i> Sign out
+          </a>
+          
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="./img/Logo.png" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">MotoExplorer</span>
+    </a>
+
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="login.html" class="d-block">Login/Sign Up</a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+ <!-- Sidebar Menu -->
+ <nav class="mt-2">
+  <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <!-- Add icons to the links using the .nav-icon class
+         with font-awesome or any other icon font library -->
+    <li class="nav-item">
+      <a href="index.html" class="nav-link">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p>
+          Dashboard
+        </p>
+      </a>
+    </li>
+    <li class="nav-header">Rental Motor</li>
+    <li class="nav-item">
+      <a href="reservasi.html" class="nav-link">
+        <i class="nav-icon fas fa-plus-square"></i>
+        <p>
+          Reservasi Online
+        </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="motor.html" class="nav-link">
+        <i class="nav-icon fas fa-motorcycle"></i>
+        <p>
+          Katalog
+          <span class="right badge badge-success">New</span>
+        </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="riwayat.html" class="nav-link">
+        <i class="nav-icon fas fa-exchange-alt"></i>
+        <p>
+          Riwayat
+        </p>
+      </a>
+    </li>
+    <li class="nav-header">Info</li>
+    <li class="nav-item">
+      <a href="about.html" class="nav-link">
+        <i class="nav-icon fas fa-address-book"></i>
+        <p>
+          About Us
+        </p>
+      </a>
+    </li> 
+    <li class="nav-item">
+      <a href="support.html" class="nav-link">
+        <i class="nav-icon fas fa-dove"></i>
+        <p>
+          Support Us
+        </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="kebijakan.html" class="nav-link">
+        <i class="nav-icon fas fa-balance-scale"></i>
+        <p>
+          Kebijakan Pengguna
+        </p>
+      </a>
+    </li>          
+ 
+
+  </ul>
+</nav>
+<!-- /.sidebar-menu -->
+</div>
+<!-- /.sidebar -->
+</aside>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+       <!-- /.content -->
+       <div class="content-header">
+     
+       </div>
+    <!-- Content Header (Page header) -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+  
+              <!-- Profile Image -->
+              <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle"
+                         src="https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg"
+                         alt="User profile picture">
+                  </div>
+  
+                  <h3 class="profile-username text-center">Praja Muda Karana</h3>
+  
+                  <p class="text-muted text-center">Mahasiswa</p>
+  
+                  <div class="card-header">
+                    <h3 class="card-title">About Me</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <strong><i class="fab fa-google mr-2"></i> Email</strong>
+    
+                    <p class="text-muted">
+                      prajamudakarana@gmail.com
+                    </p>
+    
+                    <hr>
+    
+                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+    
+                    <p class="text-muted">Denpasar, Bali</p>
+    
+                    <hr>
+    
+                    <strong><i class="fas fa-phone-alt mr-1"></i> Telephone</strong>
+    
+                    <p class="text-muted">
+                      08161921795
+                    </p>
+    
+                    <hr>
+                  <!-- /.card-body -->
+  
+                  <a href="#" class="btn btn-primary btn-block"><b>Change Profile Image</b></a>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+  
+
+              <!-- /.card -->
+            </div>
+
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+         <!-- /.content -->
+    <div class="content-header">
+     
+    </div>
+      <!-- /.content -->
+    </div>
+
+    <!-- /.content-wra
+
+  <!-Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">Amanda Cahayawulan & Putri Dwikusuma Wardhini</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- Library Menampilkan Chart -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- AOS CSS -->
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+      duration: 1200,  // Durasi animasi dalam milidetik
+      once: true       // Animasi hanya terjadi sekali (tidak berulang saat di-scroll kembali)
+  });
+</script>
+
+<script>
+$(document).ready(function() {
+    // Data for the bar chart
+    var data = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'Monthly Sales',
+            data: [12, 19, 3, 5, 9, 11, 7],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    };
+
+    // Chart configuration
+    var config = {
+        type: 'bar', // Type 'bar' for bar chart
+        data: data,
+        options: {
+            scales: {
+                x: {
+                    beginAtZero: true
+                },
+                y: {
+                    beginAtZero: true
+                }
+            },
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw;
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    // Create the chart
+    var ctx = $('#myBarChart')[0].getContext('2d');
+    var myBarChart = new Chart(ctx, config);
+
+    // Data for the pie chart
+    var dataPie = {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: 'My Pie Chart',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // Chart configuration
+    var configPie = {
+        type: 'pie', // Type 'pie' for pie chart
+        data: dataPie,
+        options: {
+            responsive: true, // Make chart responsive
+            plugins: {
+                legend: {
+                    position: 'top', // Position of the legend
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw; // Format of the tooltip
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    // Create the chart
+    var ctx = $('#myPieChart')[0].getContext('2d');
+    var myPieChart = new Chart(ctx, configPie);    
+});
+
+
+</script>
+
+</body>
+</html>
